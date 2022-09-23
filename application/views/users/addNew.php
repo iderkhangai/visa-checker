@@ -9,7 +9,7 @@
     <section class="content">
         <!-- form start -->
         <?php $this->load->helper("form"); ?>
-        <form role="form" id="addUser" enctype="multipart/form-data" action="<?php echo base_url() ?>addNewUser" method="post" role="form">
+        <form role="form" id="addUser" action="<?php echo base_url() ?>addNewUser" method="post" enctype="multipart/form-data">
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-6">
@@ -23,22 +23,22 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="photo">Photo</label>
-                                        <input type="file" class="form-control " value="<?php echo set_value('photo'); ?>" id="photo" name="photo">
+                                        <input type="file" class="form-control" required value="<?php echo set_value('photo'); ?>" id="photo" name="photo">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="fname">Full Name</label>
-                                        <input type="text" class="form-control " value="<?php echo set_value('fname'); ?>" id="fname" name="fname">
+                                        <input type="text" class="form-control " required value="<?php echo set_value('fname'); ?>" id="fname" name="fname">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="dob">Date of birth</label>
-                                        <input type="date" class="form-control " value="<?php echo set_value('dob'); ?>" id="dob" name="dob">
+                                        <input type="date" class="form-control " required value="<?php echo set_value('dob'); ?>" id="dob" name="dob">
                                     </div>
                                     <div class="form-group">
                                         <label for="role">Gender</label>
-                                        <select class="form-control " id="gender" name="gender">
+                                        <select class="form-control " id="gender" required name="gender">
                                             <option value="0">Male</option>
                                             <option value="1">Female</option>
                                         </select>
@@ -48,7 +48,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="nationality">Nationality</label>
-                                        <select name="nationality" id="nationality" class="form-control">
+                                        <select name="nationality" id="nationality" required class="form-control">
                                             <option value="">-- select one --</option>
                                             <option value="afghan">Afghan</option>
                                             <option value="albanian">Albanian</option>
@@ -248,14 +248,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="passport_no">Passport No</label>
-                                        <input type="text" class="form-control " value="<?php echo set_value('passport_no'); ?>" id="passport_no" name="passport_no">
+                                        <input type="text" class="form-control " required value="<?php echo set_value('passport_no'); ?>" id="passport_no" name="passport_no">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="passport_expiration_date">Passport expiration date</label>
-                                        <input type="date" class="form-control " value="<?php echo set_value('passport_expiration_date'); ?>" id="passport_expiration_date" name="passport_expiration_date">
+                                        <input type="date" class="form-control " required value="<?php echo set_value('passport_expiration_date'); ?>" id="passport_expiration_date" name="passport_expiration_date">
                                     </div>
                                 </div>
 
@@ -281,13 +281,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="date_of_issue">Date of issue</label>
-                                        <input type="date" class="form-control" id="date_of_issue" value="<?php echo set_value('date_of_issue'); ?>" name="date_of_issue">
+                                        <input type="date" required class="form-control" id="date_of_issue" value="<?php echo set_value('date_of_issue'); ?>" name="date_of_issue">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="visa_type">Visa type</label>
-                                        <select class="form-control " id="visa_type" name="visa_type">
+                                        <select class="form-control " required id="visa_type" name="visa_type">
                                             <option value="C-3-9">C-3-9</option>
                                             <option value="C-3-1">C-3-1</option>
                                             <option value="D-4-1">D-4-1</option>
@@ -300,7 +300,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="visa_status">Visa status</label>
-                                        <select class="form-control " id="visa_status" name="visa_status">
+                                        <select class="form-control " required id="visa_status" name="visa_status">
                                             <option value="Approved">Approved</option>
                                             <option value="Under Review">Under Review</option>
                                             <option value="Received">Received</option>
@@ -312,9 +312,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="no_entries">Number of entries</label>
-                                        <select class="form-control " id="no_entries" name="no_entries">
+                                        <select class="form-control " required id="no_entries" name="no_entries">
                                             <option value="Single-entry">Single-entry</option>
-                                            <option value="Multiple-entry">Multiple-entry</option>
+                                            <option value="Multiple-entry">Multiple</option>
                                         </select>
                                     </div>
                                 </div>
@@ -322,7 +322,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="entry_purpose">Purpose of Entry</label>
-                                        <select class="form-control " id="entry_purpose" name="entry_purpose">
+                                        <select class="form-control " required id="entry_purpose" name="entry_purpose">
                                             <option value="Medical">Medical</option>
                                             <option value="Study">Study</option>
                                             <option value="Work">Work</option>
@@ -334,7 +334,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="appno">Application Number</label>
-                                        <input type="text" class="form-control digits" id="appno" value="<?php echo set_value('appno'); ?>" name="appno">
+                                        <input type="text" class="form-control digits" required id="appno" value="<?php echo set_value('appno'); ?>" name="appno">
                                     </div>
                                 </div>
 
@@ -342,22 +342,21 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="issued_by">Issuing Authority</label>
-                                        <input type="text" class="form-control" id="issued_by" value="<?php echo set_value('issued_by'); ?>" name="issued_by">
+                                        <input type="text" class="form-control" id="issued_by" required value="<?php echo set_value('issued_by'); ?>" name="issued_by">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="visa_period">Validity Period of Visa</label>
-                                        <input type="date" class="form-control" id="visa_period" value="<?php echo set_value('visa_period'); ?>" name="visa_period">
+                                        <input type="date" class="form-control" id="visa_period" required value="<?php echo set_value('visa_period'); ?>" name="visa_period">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="remark">Remarks</label>
-                                        <textarea type="text" class="form-control" id="remark" value="<?php echo set_value('remark'); ?>" name="remark">
-                                        </textarea>
+                                        <textarea type="text" class="form-control" id="remark" required value="<?php echo set_value('remark'); ?>" name="remark"></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -90,10 +90,6 @@ $route['resetPasswordConfirmUser/(:any)/(:any)'] = "login/resetPasswordConfirmUs
 $route['createPasswordUser'] = "login/createPasswordUser";
 
 $route['roleListing'] = "roles/roleListing";
-$route['search'] = "home/search";
-$route['print'] = "home/print";
-
-
 $route['roleListing/(:num)'] = "roles/roleListing/$1";
 $route['roleListing/(:num)/(:num)'] = "roles/roleListing/$1/$2";
 

@@ -2,126 +2,170 @@
 <link href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-
-<body>
-    <!-- Page 1 -->
-    <page size="A4" style="background-color: white">
-        <div class="container">
-            <div class="row">
-                <div id="phototext">
-                    <img src="https://www.picng.com/upload/avatar/png_avatar_73978.png" width="15%">
-                </div>
-                <div class="box-body">
-                    <div class="box box-secondary">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <h3 class="bg-blue" style="padding: 5px">1. VISA GRANT NOTICE</h3>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Full Name : ider</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Date of Birth</td>
-                                    <td>Gender</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Nationality</td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Passport No</td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Passport Ex date</td>
-                                    <td></td>
-                                </tr>
-                                </td>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="box box-secondary">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <h3 class="bg-blue" style="padding: 5px">2. VISA DETAILS</h3>
-                                    </th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Full Name : ider</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Date of Birth</td>
-                                    <td>Gender</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Nationality</td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Passport No</td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Passport Ex date</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div class="row">
-                <div class="box box-secondary">
-                    <div class="endnotes">
-                        * The fields marked with * do not need to be filled in by family members of EU, EEA or CH citizens (spouse, child or dependent ascendant) while exercising their right to free
-                        movement. Family members of EU, EEA or CH citizens shall present documents to prove this relationship and fill in fields no 34 and 35.
-                        <br>
-                        (x) Fields 1-3 shall be filled in in accordance with the data in the travel document.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </page>
-</body>
-
-
+<link rel="stylesheet" href="https//fonts.googleapis.com/earlyaccess/notosanskr.css">
 <style>
+    html {
+        font-family: 'Noto Sans KR', sans-serif;
+        letter-spacing: -0.01rem;
+    }
 
+    body {
+    
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .propile {
+        width: 250px;
+        height: 400px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .header-title {
+        background-color: #cdc8c8;
+        padding: 10px;
+    }
+
+    .title {
+        /* align-items: center; */
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    .section {
+        /* display: flex; */
+        margin-bottom: 50px;
+    }
+
+    p {
+        flex: 1;
+    }
 </style>
+<div class="content">
+    <h2 class="title">VISA GRANT NOTICE</h2>
+    <div class="section">
+        <p style="float:left" id="passport_no"> Visa No: <?php echo $userInfo->passport_no ?> </p>
+        <p style="float: right"> <?php echo $userInfo->createdDtm ?></p>
+    </div>
+    <hr>
+    <div class="con">
+        <h3 class="header-title">1. Details of Applicants</h3>
+        <table class="table table-striped outer-table">
+            <tbody>
+                <td style="width:250px;">
+                    <img src="<?php echo base_url('assets/') . $userInfo->photo; ?>" width="100%" height="100%" class="img img-rounded" />
+                </td>
+                <td>
+                    <table class="table table-bordered resume-table">
+                        <tbody>
+                            <tr>
+                                <th>Full Name</th>
+                                <td><?php echo $userInfo->name ?></td>
+                            </tr>
+                            <tr>
+                                <th>Date of Birth</th>
+                                <td><?php echo $userInfo->dob ?></td>
+                            </tr>
+                            <tr>
+                                <th>Nationality</th>
+                                <td><?php echo $userInfo->nationality ?></td>
+                            </tr>
+                            <tr>
+                                <th>Passport No</th>
+                                <td><?php echo $userInfo->passport_no ?></td>
+                            </tr>
+                            <tr>
+                                <th>Passport expiration Date</th>
+                                <td><?php echo $userInfo->passport_expiration_date ?></td>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <td><?php
+                                    if ($userInfo->gender == 0)
+                                        echo 'Male';
+                                    else {
+                                        echo 'Female';
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tbody>
+        </table>
 
+        <h3 class="header-title">2. VISA DETAILS</h3>
+        <table class="table table-striped outer-table resume-table-2">
+            <colgroup>
+                <col style="width:250px;">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>Status of Stay</th>
+                    <td><label class="label label-default"><?php echo $userInfo->visa_type ?></label></td>
+                </tr>
+                <tr>
+                    <th>Date of Issue</th>
+                    <td><?php echo $userInfo->date_of_issue ?></td>
+                </tr>
+                <tr>
+                    <th>Period of Stay</th>
+                    <td><?php echo $userInfo->passport_expiration_date ?></td>
+                </tr>
+                <tr>
+                    <th>Validity Period of Visa</th>
+                    <td><?php echo $userInfo->visa_period ?></td>
+                </tr>
+                <tr>
+                    <th>Number of Entries</th>
+                    <td><?php echo $userInfo->no_entries ?></td>
+                </tr>
+                <tr>
+                    <th>Issuing Authority</th>
+                    <td><?php echo $userInfo->issued_by ?></td>
+                </tr>
+                <tr>
+                    <th>Remarks</th>
+                    <td><?php echo $userInfo->remark ?></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-title">NOTICE</h3>
+        <pre> test </pre>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    // var printDoc = new jsPDF();
-    const doc = new jsPDF({
-        unit: 'pt'
-    }) // create jsPDF object
-    const pdfElement = document.getElementById('pdf') // HTML element to be converted to PDF
+    $(document).ready(function() {
+        var form = $('.content'),
+            cache_width = form.width(),
+            a4 = [595.28, 841.89]; // for a4 size paper width and height  
+        const visa = $("#passport_no").text();
+        getCanvas().then(function(canvas) {
+            var
+                img = canvas.toDataURL("image/png"),
+                doc = new jsPDF({
+                    unit: 'px',
+                    format: 'a4'
+                });
+            doc.addImage(img, 'JPEG', 20, 20);
+            doc.save(visa);
+            form.width(cache_width);
+        });
 
-    doc.html(pdfElement, {
-        callback: (pdf) => {
-            pdf.save('MyPdfFile.pdf')
-        },
-        margin: 32, // optional: page margin
-        // optional: other HTMLOptions
-    })
+        function getCanvas() {
+            form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+            return html2canvas(form, {
+                imageTimeout: 2000,
+                removeContainer: true
+            });
+        }
+    });
 </script>

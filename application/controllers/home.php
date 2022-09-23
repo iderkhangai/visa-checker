@@ -18,6 +18,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('home_model');
+        $this->load->model('user_model');
         // $this->isLoggedIn();
     }
 
@@ -42,10 +43,10 @@ class Home extends CI_Controller
         // redirect('home');
     }
 
-    public function print()
+    public function print($userId = NULL)
     {
-   
-        $data['result'] = "sda";
+
+        $data['userInfo'] = $this->user_model->getUserInfo($userId);
         // pre($data);
         $this->load->view('certificate',  $data);
         // redirect('home');

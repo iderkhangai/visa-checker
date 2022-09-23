@@ -39,13 +39,13 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label for="dob">Date of birth</label>
-                                              <input type="date" class="form-control " value="" id="dob" name="dob">
+                                              <input type="date" required class="form-control " value="" id="dob" name="dob">
                                           </div>
                                       </div>
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label for="passport_no">Passport No</label>
-                                              <input type="text" class="form-control " value="" id="passport_no" name="passport_no">
+                                              <input type="text" required class="form-control " value="" id="passport_no" name="passport_no">
                                           </div>
                                       </div>
 
@@ -90,7 +90,21 @@
                                           </tr>
                                           <tr>
                                               <td>Application Status</td>
-                                              <td><label class="label label-success"><?php echo strtoupper($row->visa_status) ?></label></td>
+                                              <?php if (strtoupper($row->visa_status) === 'APPROVED') : ?>
+                                                  <td>
+                                                      <label for="" class="label label-success"><?php echo strtoupper($row->visa_status) ?></label>
+                                                  </td>
+                                              <?php elseif (strtoupper($row->visa_status) === 'UNDER REVIEW') : ?>
+                                                  <td>
+                                                      <label for="" class="label label-warning"><?php echo strtoupper($row->visa_status) ?></label>
+                                                  </td>
+                                              <?php elseif (strtoupper($row->visa_status) === 'RECEIVED') : ?>
+                                                  <td>
+                                                      <label for="" class="label label-danger"><?php echo strtoupper($row->visa_status) ?></label>
+                                                  </td>
+                                              <?php else : ?>
+                                                  <td>-</td>
+                                              <?php endif; ?>
                                           </tr>
 
                                           <tr>
@@ -109,9 +123,14 @@
                                           </tr>
                                       </tbody>
                                   </table>
-                                  <?php if (strtoupper($row->visa_status) === 'APPROVED')
-                                        echo ' <a class="btn btn-primary" href="<?php echo base_url() ?>print">Print Certificate</a>';
-                                    ?>
+                                  <?php if (strtoupper($row->visa_status) === 'APPROVED') : ?>
+                                      <td>
+                                          <a class="btn btn-primary" href="<?php echo base_url() . 'home/print/' . $row->userId; ?>">Print Certificate</a>
+                                      </td>
+                                  <?php else : ?>
+                                      <td>-</td>
+                                  <?php endif; ?>
+
                           <?php
                                 }
                             } else {

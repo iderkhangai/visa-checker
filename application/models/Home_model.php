@@ -22,7 +22,7 @@ class Home_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_users');
         if ($fname != '') {
-            $this->db->where('name', $fname);
+            $this->db->where('name', strtoupper($fname));
         }
         if ($dob != '') {
             $this->db->where('dob', $dob);
