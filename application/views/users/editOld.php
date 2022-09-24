@@ -206,6 +206,12 @@
                                         <input type="date" class="form-control" id="visa_period" required value="<?php echo $userInfo->visa_period; ?>" name="visa_period">
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="period_of_stay">Period of Stay</label>
+                                        <input type="text" class="form-control" id="visa_period" required value="<?php echo $userInfo->period_of_stay; ?>" name="period_of_stay">
+                                    </div>
+                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">

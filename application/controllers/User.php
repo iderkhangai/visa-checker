@@ -131,7 +131,7 @@ class User extends BaseController
             $no_entries = $this->input->post('no_entries');
             $appno = $this->input->post('appno');
             $visa_no = $this->security->xss_clean($this->input->post('visa_no'));
-
+            $period_of_stay = $this->input->post('period_of_stay');
 
             //Check whether Member upload profile_img
 
@@ -169,6 +169,7 @@ class User extends BaseController
                 'name' => strtoupper($name),
                 'photo' => $profile_img,
                 'dob' => $dob,
+                'period_of_stay' => $period_of_stay,
                 'nationality' => $nationality,
                 'entry_purpose' => $entry_purpose,
                 'date_of_issue' => $date_of_issue,
@@ -236,6 +237,7 @@ class User extends BaseController
             $this->load->library('form_validation');
             $userId = $this->input->post('userId');
             $name = $this->input->post('fname');
+            $period_of_stay = $this->input->post('period_of_stay');
             $dob = ucwords(strtolower($this->security->xss_clean($this->input->post('dob'))));
             $nationality = ucwords(strtolower($this->security->xss_clean($this->input->post('nationality'))));
             $passport_exp_date = ucwords(strtolower($this->security->xss_clean($this->input->post('passport_expiration_date'))));
@@ -284,6 +286,7 @@ class User extends BaseController
             $userInfo = array(
                 'name' => strtoupper($name),
                 // 'photo' => $profile_img,
+                'period_of_stay' => $period_of_stay,
                 'dob' => $dob,
                 'nationality' => $nationality,
                 'entry_purpose' => $entry_purpose,
