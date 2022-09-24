@@ -3,6 +3,7 @@
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https//fonts.googleapis.com/earlyaccess/notosanskr.css">
+<title>Certificate</title>
 <style>
     body {
 
@@ -105,9 +106,9 @@
     <div class="line"></div>
     <div class="con">
         <h3 class="header-title">1. DETAILS OF APPLICANT 신청자정보</h3>
-        <table class="table table-bordered">
+        <table>
             <tbody>
-                <td style="width:150px; height: 150px;">
+                <td style="width: auto;height: auto;">
                     <img src="<?php echo base_url('assets/') . $userInfo->photo; ?>" width="100%" height="100%" class="img" />
                 </td>
                 <td style="height: 150px;">
@@ -151,7 +152,7 @@
             </tbody>
         </table>
 
-        <h3 class="header-title">2. VISA DETAILS 사증사항</h3>
+        <h3 class="header-title" style=" margin-top: 0px;">2. VISA DETAILS 사증사항</h3>
         <table class="table table-bordered" style="text-align: center;">
             <tbody>
                 <tr>
@@ -235,7 +236,7 @@
                     format: 'a4'
                 });
             doc.addImage(img, 'JPEG', 20, 20);
-            doc.save(visa);
+            doc.save(visa + "certificate.pdf");
             form.width(cache_width);
         });
 
